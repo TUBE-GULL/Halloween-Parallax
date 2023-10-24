@@ -1,0 +1,118 @@
+//settings ghost 
+
+.button-ghost {
+   z-index: 10;
+   position: absolute;
+   bottom: 1%;
+   right: 10%;
+   width: 100px;
+   height: 100px;
+   transform: translate(-50%, -50%);
+   cursor: pointer;
+   filter: drop-shadow(0px 0px 30px #6ccde5);
+
+   .img-ghost {
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(0px 0px 30px #6ccde5);
+   }
+}
+
+.ghost-random {
+   width: 100%;
+   height: 100%;
+   z-index: 8;
+
+   .ghost {
+      z-index: 8;
+      width: 400px;
+      height: 400px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: moveX 5s linear 0s infinite alternate, moveY 8.4s linear 0s infinite alternate;
+   }
+}
+
+//animations ghost 
+
+@-webkit-keyframes moveX {
+   from {
+      left: -18%;
+   }
+
+   to {
+      left: 115%;
+   }
+}
+
+@-moz-keyframes moveX {
+   from {
+      left: -18%;
+   }
+
+   to {
+      left: 115%;
+   }
+}
+
+@-o-keyframes moveX {
+   from {
+      left: -18%;
+   }
+
+   to {
+      left: 115%;
+   }
+}
+
+@keyframes moveX {
+   from {
+      left: -18%;
+   }
+
+   to {
+      left: 115%;
+   }
+}
+
+@-webkit-keyframes moveY {
+   from {
+      top: -15%;
+   }
+
+   to {
+      top: 115%;
+   }
+}
+
+@-moz-keyframes moveY {
+   from {
+      top: -15%;
+   }
+
+   to {
+      top: 115%;
+   }
+}
+
+@-o-keyframes moveY {
+   from {
+      top: -15%;
+   }
+
+   to {
+      top: 115%;
+   }
+}
+
+@keyframes moveY {
+   from {
+      top: -15%;
+   }
+
+   to {
+      top: 115%;
+   }
+}

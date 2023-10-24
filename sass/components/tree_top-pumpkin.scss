@@ -1,0 +1,91 @@
+.conteiner-tree_left,
+.conteiner-tree_right,
+.pumpkin_right-light {
+   position: relative;
+   width: 100%;
+   height: 100%;
+}
+
+// pumpkin in tree left and right
+
+.top_pumpkin_left {
+   z-index: 4;
+   background-image: url(../src/img/pumkin/Lamp_left.png);
+}
+
+.top_pumpkin_right {
+   z-index: 4;
+   background-image: url(../src/img/pumkin/Lamp_right.png);
+}
+
+
+
+// tree push pumpkin in tree left
+
+.tree_left {
+   z-index: 3;
+   background-image: url(../src/img/tree/tree.png);
+
+   .conteiner-tree_left {
+      .small-pumpkin_left-top {
+         position: absolute;
+         top: 16.2%;
+         left: 27.5%;
+      }
+
+      .small-pumpkin_left-back {
+         position: absolute;
+         top: 4%;
+         left: 38%;
+      }
+   }
+}
+
+// tree push pumpkin in tree right
+
+.tree_right {
+   z-index: 3;
+   background-image: url(../src/img/tree/Tree_right.png);
+
+   .conteiner-tree_right {
+      .small-pumpkin_right-top {
+         position: absolute;
+         top: 9.3%;
+         left: 46.5%;
+      }
+
+      .small-pumpkin_right-back {
+         position: absolute;
+         top: 19.5%;
+         left: 50%;
+      }
+
+      .small-pumpkin_right-backtwo {
+         position: absolute;
+         top: 8%;
+         left: 65%;
+      }
+   }
+}
+
+// control animations 
+
+.img-pumpkin {
+   transform: translate(-50%, -50%);
+   animation: rocking 2s infinite alternate cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+
+.img-pumpkin-one {
+   transform: translate(-50%, -50%);
+   animation: rocking 1.5s infinite alternate cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+
+@keyframes rocking {
+   0% {
+      transform: rotate(10deg);
+   }
+
+   100% {
+      transform: rotate(-10deg);
+   }
+}

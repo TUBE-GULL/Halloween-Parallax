@@ -1,0 +1,22 @@
+body::after {
+   position: absolute;
+   width: 0;
+   height: 0;
+   overflow: hidden;
+   z-index: -1; // hide images
+   content: url(../src/img/ghost/ghostL_1.png) url(../src/img/ghost/ghostL_2.png) url(../src/img/ghost/ghostR_1.png) url(../src/img/ghost/ghostR_2.png); // load images
+}
+
+html,
+body {
+   position: relative;
+   width: 100%;
+   height: 100%;
+   overflow: hidden;
+   margin: 0;
+   padding: 0;
+   background-image: url(../src/img/background/halloween-background.png);
+   background-repeat: no-repeat;
+   background-size: 100% 100%;
+
+}

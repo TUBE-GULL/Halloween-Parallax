@@ -1,10 +1,12 @@
 console.log('start')
 
-const backPumpkin = document.querySelector('.back_pumpkin');
+// const link = document.querySelector('.link');
 const ghost = document.querySelector('.ghost');
-const buttonGhost = document.querySelector('.button-ghost');
 const treeLeft = document.querySelector('.tree_left');
 const treeRight = document.querySelector('.tree_right');
+const backPumpkin = document.querySelector('.back_pumpkin');
+const buttonGhost = document.querySelector('.button-ghost');
+const gradientText = document.querySelector('.gradient-text');
 const topPumpkinLeft = document.querySelector('.top_pumpkin_left');
 const topPumpkinRight = document.querySelector('.top_pumpkin_right');
 const frontPumpkinLeft = document.querySelector('.front_pumpkin_left');
@@ -16,6 +18,7 @@ const topPumpkinLeftLight = document.querySelector('.front_pumpkin_left-light');
 const smallPumpkinRightBack = document.querySelector('.small-pumpkin_right-back');
 const topPumpkinRightLight = document.querySelector('.front_pumpkin_right-light');
 const layerTransparentBackground = document.querySelector('.layer-transparent-background');
+
 
 const Parallax = (layer, X, Y) => {
    const xAxis = (window.innerWidth / 2 - event.pageX) / X;
@@ -34,6 +37,7 @@ document.addEventListener('mousemove', (event) => {
    Parallax(frontPumpkinLeft, 75, 105);
    Parallax(frontPumpkinRight, 75, 105);
    Parallax(buttonGhost, 75, 105);
+   // Parallax(link, 75, 105);
 });
 
 const particlesConfig = {
@@ -175,26 +179,57 @@ function pauseAudio() {
    audio.pause();
 }
 
+let isLeft = true;
 
-const eventGhostLeft = () => {
-   let number = Math.floor(Math.random() * (4 - 1 + 1)) + 1;
-   ghost.style.backgroundImage = `url(src/img/ghost/ghost_${number}.png)`;
-   ghost.style.backgroundRepeat = "no-repeat";
-   ghost.style.backgroundSize = "100% 100%";
+function checkPosition() {
+   let leftLimit = -200;
+   let screenWidth = window.innerWidth;
+   let currentLeft = ghost.offsetLeft;
+   // console.log(screenWidth);// width window 
+   // console.log(currentLeft); // position block 
+   let number = Math.floor(Math.random() * (2 - 1 + 1)) + 1;
+   screenWidth += 200
+
+   if (currentLeft >= screenWidth) {
+      if (isLeft) {
+         isLeft = false;
+         ghost.style.backgroundImage = `url(src/img/ghosts/ghostL_${number}.png)`;
+         ghost.style.backgroundRepeat = "no-repeat";
+         ghost.style.backgroundSize = "100% 100%";
+      }
+   } else if (currentLeft <= leftLimit) {
+      if (!isLeft) {
+         isLeft = true;
+         ghost.style.backgroundImage = `url(src/img/ghosts/ghostR_${number}.png)`;
+         ghost.style.backgroundRepeat = "no-repeat";
+         ghost.style.backgroundSize = "100% 100%";
+      }
+   }
 }
+let positionInterval = true;
 
 buttonGhost.addEventListener('click', function () {
    if (offOn) {
-      eventGhostLeft();
       playAudio()
       offOn = false;
+      positionInterval = setInterval(checkPosition, 100);
    } else {
       pauseAudio()
       ghost.style.backgroundImage = ``;
       ghost.style.backgroundRepeat = "no-repeat";
       ghost.style.backgroundSize
       offOn = true;
-
+      clearInterval(positionInterval);
    }
-
 });
+
+// const arrayText = [];
+
+// const hOneText = gradientText.textContent
+// console.log(hOneText)
+
+// for (let i = 0; i < hOneText.length; i++) {
+//    let text = gradientText[i].textContent;
+//    arrayText.push(text);
+// }
+// console.log(arrayText)
